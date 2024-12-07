@@ -7,12 +7,22 @@ export const MainView = () => {
     const [selectedMovie, setSelectedMovie] = useState(null);
 
     useEffect(() => {
-        fetch("https://movie-hive-ee3949a892be.herokuapp.com/movies")
-            .then((response) => response.json())
-            .then((data) => {
-                setMovies(data);
-            });
-    }, []);
+    const fetchMovies = async () => {
+        try {
+            const response = await fetch("https://movie-hive-ee3949a892be.herokuapp.com/movies");
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+            setMovies(data);
+        } catch (error) {
+            console.error("Error fetching movies:", error);
+        }
+    };
+
+    fetchMovies();
+}, []);
+
 
     if (selectedMovie) {
         return (
