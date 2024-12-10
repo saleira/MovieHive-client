@@ -7,6 +7,8 @@ export const SignupView = () => {
     const [Email, setEmail] = useState("");
     const [Birthday, setBirthday] = useState("");
 
+    const [errors, setErrors] = useState({});
+
     const handleSubmit = async e => {
         e.preventDefault();
 
@@ -29,11 +31,22 @@ export const SignupView = () => {
                 alert("Signup successful");
                 window.location.reload();
             } else {
-                alert("Signup failed");
+                const errorData = await response.json();
+                if (errorData.errors) {
+                    const fieldErrors = {};
+                    errorData.errors.forEach((err) => {
+                        fieldErrors[err.param] = err.msg;
+                    });
+                    setErrors(fieldErrors);
+                } else if (errorData.message) {
+                    setErrors({ general: errorData.message });
+                } else {
+                    setErrors({ general: "Signup failed. Please try again." });
+                }
             }
-        } catch {
+        } catch (error) {
             console.error("Error during signup:", error);
-            alert("Something went wrong. Please try again.");
+             setErrors({ general: "Something went wrong. Please try again later." });
         }
     };
 
@@ -60,6 +73,12 @@ export const SignupView = () => {
                 <input type="date" value={Birthday} onChange={e => setBirthday(e.target.value)} required />
             </label>
             <button type="submit">Submit</button>
+            {errors.Name && <div className="error-message">{errors.Name}</div>}
+            {errors.Username && <div className="error-message">{errors.Username}</div>}
+            {errors.Password && <div className="error-message">{errors.Password}</div>}
+            {errors.Email && <div className="error-message">{errors.Email}</div>}
+            {errors.Birthday && <div className="error-message">{errors.Birthday}</div>}
+            {errors.general && <div className="error-message">{errors.general}</div>}
         </form>
     );
 };
