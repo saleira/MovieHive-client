@@ -1,3 +1,8 @@
+$primary: SeaGreen;
+$body-bg: Honeydew;
+
+@import '~bootstrap/scss/bootstrap.scss';
+
 $color: steelblue;
 
 .movie-hive {
@@ -8,4 +13,8 @@ $color: steelblue;
     color: red;
     font-size: 0.9em;
     margin-top: 4px;
+}
+
+.mt-6 {
+    margin-top: 7rem;
 }
