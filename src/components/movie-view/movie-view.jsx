@@ -2,7 +2,7 @@ import {Col, Row, Button} from "react-bootstrap";
 
 export const MovieView = ({movieData, onBackClick}) => {
     return (
-        <Row className="justify-content-center align-items-center">
+        <Row className="align-items-center">
             <Col md={6}>
                 <img className="w-100" src={movieData.ImagePath} />
             </Col>
