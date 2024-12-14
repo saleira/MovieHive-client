@@ -13202,8 +13202,23 @@ textarea.form-control-lg {
   margin-top: 7rem;
 }
 
-.navbar-dark .nav-item .nav-link {
-  color: #fff;
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-img {
+  object-fit: cover;
+  transition: transform .3s;
+}
+
+.card-img:hover {
+  transform: scale(1.1);
+}
+
+.card-body {
+  z-index: 1;
+  position: relative;
 }
 
 .navbar-dark .nav-item .nav-link:hover {
@@ -13216,5 +13231,23 @@ textarea.form-control-lg {
 .fa-li {
   position: relative;
   left: 0;
+}
+
+.custom-dropdown .dropdown-menu {
+  background-color: #212529;
+  border: none;
+}
+
+.custom-dropdown .dropdown-item {
+  color: #f8f9fa;
+}
+
+.custom-dropdown .dropdown-item:hover {
+  color: #fff;
+  background-color: #343a40;
+}
+
+.custom-dropdown .dropdown-toggle:after {
+  color: #f8f9fa;
 }
 /*# sourceMappingURL=index.2212206d.css.map */
