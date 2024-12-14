@@ -1,0 +1,31 @@
+
+
+.navbar-dark .nav-item .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  border-radius: 0.25rem;
+  color: #fff;
+}
+
+.fa-li {
+  position: relative;
+  left: 0;
+}
+
+.custom-dropdown .dropdown-menu {
+  background-color: #212529;
+  border: none;
+}
+
+.custom-dropdown .dropdown-item {
+  color: #f8f9fa;
+}
+
+.custom-dropdown .dropdown-item:hover {
+  background-color: #343a40; 
+  color: #ffffff; 
+}
+
+.custom-dropdown .dropdown-toggle::after {
+  color: #f8f9fa;
+}
