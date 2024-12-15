@@ -76,7 +76,7 @@ export const MainView = () => {
                     />
                     <Route 
                         path="/profile"
-                        element={user ? <Col md={5}><ProfileView /></Col> : <Navigate to="/login" />}
+                        element={user ? <Col><ProfileView /></Col> : <Navigate to="/login" />}
                     />
                     <Route 
                         path="/movies/:movieId"
