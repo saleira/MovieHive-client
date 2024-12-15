@@ -14,7 +14,7 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
         <Navbar.Brand as={Link} to="/">
             <img id="MovieHive-logo" src={logo} alt="MovieHive Logo" draggable="false" height="30" />
         </Navbar.Brand>
-        <Form inline className="d-none d-lg-block">
+        <Form className="d-none d-lg-block">
             <Row>
                 <Col xs="auto">
                     <Form.Control type="text" placeholder="Search" className=" mr-sm-2" style={{ width: '300px', maxWidth: '100%' }}/>
@@ -24,13 +24,15 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-                <Nav.Link as={Link} to="/">Movies</Nav.Link>
-                <Nav.Link as={Link} to="/">Directors</Nav.Link>
                 {storedUser ? (
-                    <NavDropdown title={storedUser.Name} id="basic-nav-dropdown" menuVariant="dark" className="custom-dropdown">
-                        <NavDropdown.Item as={Link} to="/profile">Profile</NavDropdown.Item>
-                        <NavDropdown.Item onClick={onLoggedOut}>Logout</NavDropdown.Item>
-                    </NavDropdown>
+                     <>
+                        <Nav.Link as={Link} to="/">Movies</Nav.Link>
+                        <Nav.Link as={Link} to="/">Directors</Nav.Link>
+                        <NavDropdown title={storedUser.Name} id="basic-nav-dropdown" menuVariant="dark" className="custom-dropdown">
+                            <NavDropdown.Item as={Link} to="/profile">Profile</NavDropdown.Item>
+                            <NavDropdown.Item onClick={onLoggedOut}>Logout</NavDropdown.Item>
+                        </NavDropdown>
+                    </>
                 ) : location.pathname === "/signup" ? (
                     <Nav.Link as={Link} to="/login">Login</Nav.Link>
                 ) : (
