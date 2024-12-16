@@ -1,4 +1,4 @@
-import { Col, Row, Button } from "react-bootstrap";
+import { Col, Row, Button, Spinner } from "react-bootstrap";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -9,9 +9,11 @@ export const MovieView = ({ movieData }) => {
     const [user, setUser] = useState(null);
     const [feedbackMessage, setFeedbackMessage] = useState("");
     const movie = movieData.find((b) => b._id === movieId);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         const fetchUserData = async () => {
+            setLoading(true);
             try {
                 const response = await fetch(
                     `https://movie-hive-ee3949a892be.herokuapp.com/users/${JSON.parse(localStorage.getItem("user")).Username}`,
@@ -30,6 +32,8 @@ export const MovieView = ({ movieData }) => {
                 setUser(data);
             } catch (error) {
                 setFeedbackMessage(error.message);
+            } finally {
+                setLoading(false);
             }
         };
 
@@ -85,6 +89,16 @@ export const MovieView = ({ movieData }) => {
             setFeedbackMessage(error.message);
         }
     };
+
+    if (loading) {
+        return (
+            <div className="d-flex justify-content-center align-items-center" style={{ height: "80vh" }}>
+                <Spinner animation="border" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </Spinner>
+            </div>
+        );
+    }
 
     if (!user) {
         return <div>Loading user data...</div>;
