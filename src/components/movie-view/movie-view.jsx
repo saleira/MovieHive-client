@@ -1,4 +1,4 @@
-import { Col, Row, Button, Spinner } from "react-bootstrap";
+import { Col, Row, Button, Spinner, Card } from "react-bootstrap";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -107,56 +107,52 @@ export const MovieView = ({ movieData }) => {
     return (
         <Row className="align-items-center">
             <Col md={6}>
-                <img className="w-100" src={movie.ImagePath} alt={`${movie.Title} Poster`} />
+                <img className="w-100 rounded shadow" src={movie.ImagePath} alt={`${movie.Title} Poster`} />
             </Col>
             <Col md={6}>
-                <div>
-                    <span>Title: </span>
-                    <span>{movie.Title}</span>
-                </div>
-                <div>
-                    <span>Description: </span>
-                    <span>{movie.Description}</span>
-                </div>
-                <div>
-                    <span>Genre: </span>
-                    <span>{movie.Genre.Name}</span>
-                </div>
-                <div>
-                    <span>Director: </span>
-                    <span>{movie.Director.Name}</span>
-                </div>
-                <div className="mt-3">
-                    {user.FavoriteMovies.includes(movie.Title) ? (
-                        <Button
-                            variant="danger"
-                            onClick={handleRemoveFromFavorites}
-                            style={{ cursor: "pointer" }}
-                        >
-                            Remove from Favorites
-                        </Button>
-                    ) : (
-                        <Button
-                            variant="success"
-                            onClick={handleAddToFavorites}
-                            style={{ cursor: "pointer" }}
-                        >
-                            Add to Favorites
-                        </Button>
-                    )}
-                </div>
-                {feedbackMessage && (
-                    <div className="mt-3">
-                        <span style={{ color: feedbackMessage.includes("Failed") ? "red" : "green" }}>
-                            {feedbackMessage}
-                        </span>
-                    </div>
-                )}
-                <div className="mt-3">
+                <Card className="h-100 p-4 shadow-lg">
+                    <Card.Body>
+                        <Card.Title className="fs-3">{movie.Title}</Card.Title>
+                        <Card.Subtitle className="mb-3 text-muted">{movie.Genre.Name}</Card.Subtitle>
+                        <Card.Text className="text-muted mb-3">{movie.Description}</Card.Text>
+                        <div className="mb-4">
+                            <span className="fw-bold">Director: </span>
+                            <span>{movie.Director.Name}</span>
+                        </div>
+                        <div className="d-flex justify-content-center gap-3">
+                            {user.FavoriteMovies.includes(movie.Title) ? (
+                                <Button
+                                    variant="danger"
+                                    onClick={handleRemoveFromFavorites}
+                                    style={{ cursor: "pointer" }}
+                                >
+                                    Remove from Favorites
+                                </Button>
+                            ) : (
+                                <Button
+                                    variant="success"
+                                    onClick={handleAddToFavorites}
+                                    style={{ cursor: "pointer" }}
+                                >
+                                    Add to Favorites
+                                </Button>
+                            )}
+                        </div>
+                        {feedbackMessage && (
+                            <div className="mt-3 text-center">
+                                <span
+                                    style={{ color: feedbackMessage.includes("Failed") ? "red" : "green" }}
+                                    className="fw-bold"
+                                >
+                                    {feedbackMessage}
+                                </span>
+                            </div>
+                        )}
+                    </Card.Body>
+                </Card>
+                <div className="mt-4 text-center">
                     <Link to="/">
-                        <Button variant="primary" type="submit" className="btn btn-primary" style={{ cursor: "pointer" }}>
-                            Back
-                        </Button>
+                        <Button variant="primary">Back</Button>
                     </Link>
                 </div>
             </Col>
