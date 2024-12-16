@@ -48755,15 +48755,6 @@ const NavigationBar = ({ user, onLoggedOut })=>{
                                     lineNumber: 29,
                                     columnNumber: 25
                                 }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
-                                    as: (0, _reactRouter.Link),
-                                    to: "/",
-                                    children: "Directors"
-                                }, void 0, false, {
-                                    fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                    lineNumber: 30,
-                                    columnNumber: 25
-                                }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.NavDropdown), {
                                     title: storedUser.Name,
                                     id: "basic-nav-dropdown",
@@ -48776,7 +48767,7 @@ const NavigationBar = ({ user, onLoggedOut })=>{
                                             children: "Profile"
                                         }, void 0, false, {
                                             fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                            lineNumber: 32,
+                                            lineNumber: 31,
                                             columnNumber: 29
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.NavDropdown).Item, {
@@ -48784,13 +48775,13 @@ const NavigationBar = ({ user, onLoggedOut })=>{
                                             children: "Logout"
                                         }, void 0, false, {
                                             fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                            lineNumber: 33,
+                                            lineNumber: 32,
                                             columnNumber: 29
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                    lineNumber: 31,
+                                    lineNumber: 30,
                                     columnNumber: 25
                                 }, undefined)
                             ]
@@ -48800,7 +48791,7 @@ const NavigationBar = ({ user, onLoggedOut })=>{
                             children: "Login"
                         }, void 0, false, {
                             fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                            lineNumber: 37,
+                            lineNumber: 36,
                             columnNumber: 21
                         }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
                             as: (0, _reactRouter.Link),
@@ -48808,7 +48799,7 @@ const NavigationBar = ({ user, onLoggedOut })=>{
                             children: "Create account"
                         }, void 0, false, {
                             fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                            lineNumber: 39,
+                            lineNumber: 38,
                             columnNumber: 21
                         }, undefined)
                     }, void 0, false, {
