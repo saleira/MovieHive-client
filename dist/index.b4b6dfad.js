@@ -48030,6 +48030,7 @@ const MovieView = ({ movieData })=>{
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                 md: 6,
+                m: 12,
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                     className: "w-100 rounded shadow",
                     src: movie.ImagePath,
@@ -48046,6 +48047,7 @@ const MovieView = ({ movieData })=>{
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                 md: 6,
+                sm: 12,
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
                         className: "h-100 p-4 shadow-lg",

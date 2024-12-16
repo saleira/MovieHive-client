@@ -106,10 +106,10 @@ export const MovieView = ({ movieData }) => {
 
     return (
         <Row className="align-items-center">
-            <Col md={6}>
+            <Col md={6} m={12}>
                 <img className="w-100 rounded shadow" src={movie.ImagePath} alt={`${movie.Title} Poster`} />
             </Col>
-            <Col md={6}>
+            <Col md={6} sm={12}>
                 <Card className="h-100 p-4 shadow-lg">
                     <Card.Body>
                         <Card.Title className="fs-3">{movie.Title}</Card.Title>
