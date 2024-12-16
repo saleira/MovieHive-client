@@ -48,6 +48,13 @@ export const MainView = () => {
     return (
         <BrowserRouter>
             <NavigationBar user={user} onLoggedOut={onLoggedOut} />
+            {loading && (
+                <div className="d-flex justify-content-center align-items-center" style={{ height: "80vh" }}>
+                    <Spinner animation="border" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </Spinner>
+                </div>
+            )}
             <Row className="justify-content-center gap-3 mt-6">
                 <Routes>
                     <Route 
@@ -102,9 +109,7 @@ export const MainView = () => {
                             <>
                                 {!user ? (
                                     <Navigate to="/login" replace/>
-                                ) : loading ? (
-                                    <Col className="text-center"><Spinner animation="border"></Spinner></Col>
-                                ) : movies.length === 0 ? (
+                                ) : !loading && movies.length === 0 ? (
                                     <Col>The list is empty!</Col>
                                 ) : (
                                     <>
@@ -121,6 +126,5 @@ export const MainView = () => {
                 </Routes>
             </Row>
         </BrowserRouter>
-                
     );
 };
