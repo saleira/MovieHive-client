@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Container, Row, Col, Button, Card, Form, Modal, ListGroup } from "react-bootstrap";
+import { Container, Row, Col, Button, Card, Form, Modal, ListGroup, Spinner } from "react-bootstrap";
 import "./profile-view.scss"
 
 export const ProfileView = () => {
@@ -11,6 +11,7 @@ export const ProfileView = () => {
     const [pendingUpdate, setPendingUpdate] = useState(false);
     const [pendingMovieRemovals, setPendingMovieRemovals] = useState([]);
     const [pendingAccountDeletion, setPendingAccountDeletion] = useState(false);
+    const [loading, setLoading] = useState(false);
     const token = localStorage.getItem("token");
     const storedUser = JSON.parse(localStorage.getItem("user"));
 
@@ -21,22 +22,25 @@ export const ProfileView = () => {
         }
 
         const fetchUser = async () => {
+            setLoading(true);
             try {
                 const response = await fetch(`https://movie-hive-ee3949a892be.herokuapp.com/users/${storedUser.Username}`, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                    "Content-Type": "application/json",
-                },
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        "Content-Type": "application/json",
+                    },
                 });
 
                 if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+                    throw new Error(`HTTP error! status: ${response.status}`);
                 }
 
                 const userData = await response.json();
                 setUser(userData);
             } catch (error) {
                 setError(error.message);
+            } finally {
+                setLoading(false);
             }
         };
         fetchUser();
@@ -139,6 +143,16 @@ export const ProfileView = () => {
 
     if (error) {
         return <p>Error fetching user data: {error}</p>;
+    }
+
+    if (loading) {
+        return (
+            <div className="d-flex justify-content-center align-items-center" style={{ height: "80vh" }}>
+                <Spinner animation="border" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </Spinner>
+            </div>
+        );
     }
 
     if (!user) {
