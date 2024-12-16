@@ -6,13 +6,13 @@ import "./movie-card.scss";
 export const MovieCard = ({ movieData }) => {
     return (
         <Link to={`/movies/${encodeURIComponent(movieData._id)}`} className="text-decoration-none">
-            <Card className="h-100 movie-card" style={{ width: '18rem', cursor: "pointer"}} variant="link">
+            <Card className="h-100 movie-card" variant="link">
                 <div className="card-img-container">
-                    <Card.Img variant="top" src={movieData.ImagePath} style={{maxHeight: "400px"}} className="card-img"/>
+                    <Card.Img variant="top" src={movieData.ImagePath} style={{maxHeight: "350px"}} className="card-img"/>
                 </div>
                 <Card.Body>
-                    <Card.Title>{movieData.Title}</Card.Title>
-                    <Card.Text>{movieData.Director.Name}</Card.Text>
+                    <Card.Title className="fs-5 fs-md-4 fs-lg-3">{movieData.Title}</Card.Title>
+                    <Card.Text className="fs-6 fs-md-5 fs-lg-4">{movieData.Director.Name}</Card.Text>
                 </Card.Body>
             </Card>
         </Link>

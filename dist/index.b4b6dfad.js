@@ -27599,7 +27599,10 @@ const MainView = ()=>{
                                     columnNumber: 37
                                 }, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
                                     children: movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                                            xs: 12,
+                                            sm: 4,
                                             md: 3,
+                                            lg: 3,
                                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                                                 movieData: movie
                                             }, void 0, false, {
@@ -27669,10 +27672,6 @@ const MovieCard = ({ movieData })=>{
         className: "text-decoration-none",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
             className: "h-100 movie-card",
-            style: {
-                width: '18rem',
-                cursor: "pointer"
-            },
             variant: "link",
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27681,7 +27680,7 @@ const MovieCard = ({ movieData })=>{
                         variant: "top",
                         src: movieData.ImagePath,
                         style: {
-                            maxHeight: "400px"
+                            maxHeight: "350px"
                         },
                         className: "card-img"
                     }, void 0, false, {
@@ -27697,6 +27696,7 @@ const MovieCard = ({ movieData })=>{
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Title, {
+                            className: "fs-5 fs-md-4 fs-lg-3",
                             children: movieData.Title
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
@@ -27704,6 +27704,7 @@ const MovieCard = ({ movieData })=>{
                             columnNumber: 21
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
+                            className: "fs-6 fs-md-5 fs-lg-4",
                             children: movieData.Director.Name
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",

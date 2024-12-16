@@ -1,6 +1,9 @@
 .movie-card {
+    width: 18rem;
+    cursor: pointer;
+
     .card-img-container {
-        overflow: hidden;
+        overflow: hidden; 
     }
 
     .card-img {
@@ -9,5 +12,23 @@
 
     &:hover .card-img {
         transform: scale(1.1);
+    }
+
+
+    @media (max-width: 1200px) {
+        width: 15rem; 
+    }
+
+    @media (max-width: 992px) {
+        width: 12rem;
+    }
+
+    @media (max-width: 768px) {
+        width: 11rem;
+    }
+
+    @media (max-width: 576px) {
+        width: 50%;
+        margin: 0 auto;
     }
 }
