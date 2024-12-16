@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router";
 import "./navigation-bar.scss"
 import logo from "../../Img/moviehive-logo-transparent.svg";
 
-export const NavigationBar = ({ user, onLoggedOut }) => {
+export const NavigationBar = ({ onLoggedOut }) => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const storedToken = localStorage.getItem("token");
     const location = useLocation();

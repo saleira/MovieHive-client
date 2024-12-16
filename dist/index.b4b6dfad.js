@@ -27431,7 +27431,6 @@ const MainView = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.BrowserRouter), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navigationBar.NavigationBar), {
-                user: user,
                 onLoggedOut: onLoggedOut
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
@@ -48671,7 +48670,7 @@ var _navigationBarScss = require("./navigation-bar.scss");
 var _moviehiveLogoTransparentSvg = require("../../Img/moviehive-logo-transparent.svg");
 var _moviehiveLogoTransparentSvgDefault = parcelHelpers.interopDefault(_moviehiveLogoTransparentSvg);
 var _s = $RefreshSig$();
-const NavigationBar = ({ user, onLoggedOut })=>{
+const NavigationBar = ({ onLoggedOut })=>{
     _s();
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const storedToken = localStorage.getItem("token");

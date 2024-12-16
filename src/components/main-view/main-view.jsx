@@ -47,7 +47,7 @@ export const MainView = () => {
 
     return (
         <BrowserRouter>
-            <NavigationBar user={user} onLoggedOut={onLoggedOut} />
+            <NavigationBar onLoggedOut={onLoggedOut} />
             {loading && (
                 <div className="d-flex justify-content-center align-items-center" style={{ height: "80vh" }}>
                     <Spinner animation="border" role="status">
