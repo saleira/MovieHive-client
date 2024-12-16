@@ -1,10 +1,9 @@
-import React, {useState}  from "react";
+import React, {useState }  from "react";
 import { Button, Form } from "react-bootstrap";
 
 export const LoginView = ({onLoggedIn}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-
     const [errors, setErrors] = useState({});
 
     const handleSubmit = async (e) => {
@@ -58,11 +57,11 @@ export const LoginView = ({onLoggedIn}) => {
                 <Form.Label>Username:</Form.Label>
                 <Form.Control type="text" value={username} onChange={(e) => setUsername(e.target.value)} required minLength="3"/>
             </Form.Group>
-            <Form.Group controlId="formPassword">
+            <Form.Group controlId="formPassword" className="mt-3">
                 <Form.Label>Password:</Form.Label>
                 <Form.Control type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
             </Form.Group>
-            <Button variant="primary" type="submit">Login</Button>
+            <Button variant="primary" type="submit" className="mt-3">Login</Button>
             {errors.username && <div className="error-message">{errors.username}</div>}
             {errors.password && <div className="error-message">{errors.password}</div>}
             {errors.general && <div className="error-message">{errors.general}</div>}
