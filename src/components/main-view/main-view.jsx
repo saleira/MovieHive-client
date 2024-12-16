@@ -4,7 +4,7 @@ import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
 import { ProfileView } from "../profile-view/profile-view";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Spinner } from "react-bootstrap";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
 
@@ -14,6 +14,7 @@ export const MainView = () => {
     const [movies, setMovies] = useState([]);
     const [user, setUser] = useState(storedUser ? storedUser : null);
     const [token, setToken] = useState(storedToken ? storedToken : null);
+    const [loading, setLoading] = useState(false);
 
     const onLoggedOut = () => {
         setUser(null);
@@ -25,6 +26,7 @@ export const MainView = () => {
         if (!token) return;
 
         const fetchMovies = async () => {
+            setLoading(true);
             try {
                 const response = await fetch("https://movie-hive-ee3949a892be.herokuapp.com/movies", {
                     headers: {Authorization: `Bearer ${token}`}
@@ -36,6 +38,8 @@ export const MainView = () => {
                 setMovies(movies);
             } catch (error) {
                 console.error("Error fetching movies:", error);
+            } finally {
+                setLoading(false);
             }
         };
         fetchMovies();
@@ -84,8 +88,6 @@ export const MainView = () => {
                             <>
                                 {!user ? (
                                     <Navigate to="/login" replace/>
-                                ) : movies.length === 0 ? (
-                                    <Col>The list is empty!</Col>
                                 ) : (
                                     <Col md={8}>
                                         <MovieView movieData={movies} />
@@ -100,6 +102,8 @@ export const MainView = () => {
                             <>
                                 {!user ? (
                                     <Navigate to="/login" replace/>
+                                ) : loading ? (
+                                    <Col className="text-center"><Spinner animation="border"></Spinner></Col>
                                 ) : movies.length === 0 ? (
                                     <Col>The list is empty!</Col>
                                 ) : (
