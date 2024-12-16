@@ -13202,23 +13202,16 @@ textarea.form-control-lg {
   margin-top: 7rem;
 }
 
-.card {
-  position: relative;
+.movie-card .card-img-container {
   overflow: hidden;
 }
 
-.card-img {
-  object-fit: cover;
+.movie-card .card-img {
   transition: transform .3s;
 }
 
-.card-img:hover {
+.movie-card:hover .card-img {
   transform: scale(1.1);
-}
-
-.card-body {
-  z-index: 1;
-  position: relative;
 }
 
 .navbar-dark .nav-item .nav-link:hover {

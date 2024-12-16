@@ -1,18 +1,13 @@
-.card {
-  position: relative;
-  overflow: hidden; /* Prevent image overflow */
-}
+.movie-card {
+    .card-img-container {
+        overflow: hidden;
+    }
 
-.card-img {
-  transition: transform 0.3s ease;
-  object-fit: cover; /* Ensure the image covers the area without stretching */
-}
+    .card-img {
+        transition: transform 0.3s ease;
+    }
 
-.card-img:hover {
-  transform: scale(1.1); /* Apply the zoom effect */
-}
-
-.card-body {
-  position: relative;
-  z-index: 1; /* Ensure the text stays above the image */
+    &:hover .card-img {
+        transform: scale(1.1);
+    }
 }
