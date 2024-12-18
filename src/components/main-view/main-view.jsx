@@ -45,6 +45,7 @@ export const MainView = () => {
         fetchMovies();
     }, [token]);
 
+
     return (
         <BrowserRouter>
             <NavigationBar onLoggedOut={onLoggedOut} />
