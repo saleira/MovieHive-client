@@ -21,23 +21,19 @@ MovieHive is a single-page React application for browsing and managing a persona
 ## Dependencies
 The project leverages the following dependencies:
 
-```json
-{
-  "dependencies": {
-    "bootstrap": "^5.3.3",
-    "prop-types": "^15.8.1",
-    "react": "^18.3.1",
-    "react-bootstrap": "^2.10.6",
-    "react-dom": "^18.3.1",
-    "react-router": "^7.0.2",
-    "react-router-dom": "^7.0.2"
-  },
-  "devDependencies": {
-    "@parcel/transformer-sass": "^2.13.2",
-    "process": "^0.11.10"
-  }
-}
-```
+### Production Dependencies
+- **Bootstrap (`^5.3.3`)**: Provides pre-designed UI components and responsive grid layouts, used for styling and ensuring a mobile-friendly design.
+- **Prop-Types (`^15.8.1`)**: A runtime type-checking library for React components, ensuring that the props passed to components match the expected types.
+- **React (`^18.3.1`)**: A JavaScript library for building user interfaces, enabling the creation of dynamic and interactive UI components.
+- **React-Bootstrap (`^2.10.6`)**: Integrates Bootstrap with React components, allowing for a more seamless and React-friendly way to use Bootstrap components.
+- **React-DOM (`^18.3.1`)**: Provides DOM-specific methods for React, used to render React components to the DOM.
+- **React-Router (`^7.0.2`) and React-Router-Dom (`^7.0.2`)**: Enable routing and navigation within the React application, allowing for seamless transitions between views.
+
+### Development Dependencies
+- **@Parcel/Transformer-SASS (`^2.13.2`)**: Enables Parcel to compile SASS/SCSS files into CSS, allowing for modular and maintainable stylesheets.
+- **Process (`^0.11.10`)**: Provides a browser polyfill for Node.js `process`, ensuring compatibility in web environments.
+
+These dependencies collectively enable the application to deliver a robust and interactive user experience while maintaining a clean and scalable codebase.
 
 ## Testing the Project with Parcel
 Follow these steps to test the project locally:
