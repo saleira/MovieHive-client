@@ -8,7 +8,7 @@ export const MovieCard = ({ movieData }) => {
         <Link to={`/movies/${encodeURIComponent(movieData._id)}`} className="text-decoration-none">
             <Card className="h-100 movie-card" variant="link">
                 <div className="card-img-container">
-                    <Card.Img variant="top" src={movieData.ImagePath} style={{maxHeight: "350px"}} className="card-img"/>
+                    <Card.Img variant="top" src={movieData.ImagePath} style={{maxHeight: "400px"}} className="card-img"/>
                 </div>
                 <Card.Body>
                     <Card.Title className="fs-5 fs-md-4 fs-lg-3">{movieData.Title}</Card.Title>
