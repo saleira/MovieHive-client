@@ -15,6 +15,7 @@ export const MainView = () => {
     const [user, setUser] = useState(storedUser ? storedUser : null);
     const [token, setToken] = useState(storedToken ? storedToken : null);
     const [loading, setLoading] = useState(false);
+    const [filter, setFilter] = useState("");
 
     const onLoggedOut = () => {
         setUser(null);
@@ -35,7 +36,8 @@ export const MainView = () => {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const movies = await response.json();
-                setMovies(movies);
+                const sortedMovies = movies.sort((a, b) => a.Title.localeCompare(b.Title));
+                setMovies(sortedMovies);
             } catch (error) {
                 console.error("Error fetching movies:", error);
             } finally {
@@ -45,10 +47,17 @@ export const MainView = () => {
         fetchMovies();
     }, [token]);
 
+    const handleFilterChange = (value) => {
+        setFilter(value || "");
+    };
+
+    const filteredMovies = movies.filter(movies =>
+        movies.Title.toLowerCase().includes(filter.toLocaleLowerCase())
+    );
 
     return (
         <BrowserRouter>
-            <NavigationBar onLoggedOut={onLoggedOut} />
+            <NavigationBar onLoggedOut={onLoggedOut} onFilterChange={handleFilterChange} />
             {loading && (
                 <div className="d-flex justify-content-center align-items-center" style={{ height: "80vh" }}>
                     <Spinner animation="border" role="status">
@@ -114,7 +123,7 @@ export const MainView = () => {
                                     <Col>The list is empty!</Col>
                                 ) : (
                                     <>
-                                        {movies.map((movie) => (
+                                        {filteredMovies.map((movie) => (
                                             <Col key={movie._id} xs={12} sm={4} md={3} lg={3}>
                                                 <MovieCard movieData={movie} />
                                             </Col>

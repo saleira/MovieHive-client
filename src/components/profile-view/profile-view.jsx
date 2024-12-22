@@ -70,7 +70,6 @@ export const ProfileView = () => {
     const handleConfirmAction = async () => {
         try {
             if (pendingAccountDeletion) {
-                // Handle account deletion
                 const response = await fetch(`https://movie-hive-ee3949a892be.herokuapp.com/users/${storedUser.Username}`, {
                     method: "DELETE",
                     headers: {
@@ -89,7 +88,6 @@ export const ProfileView = () => {
             }
 
             if (pendingUpdate) {
-                // Handle user info update
                 const updateResponse = await fetch(`https://movie-hive-ee3949a892be.herokuapp.com/users/${storedUser.Username}`, {
                     method: "PUT",
                     headers: {
@@ -106,7 +104,6 @@ export const ProfileView = () => {
 
             if (pendingMovieRemovals.length > 0) {
                 const updatedFavoriteMovies = [...user.FavoriteMovies];
-                // Handle movie removals
                 for (const movieTitle of pendingMovieRemovals) {
                     const movieResponse = await fetch(`https://movie-hive-ee3949a892be.herokuapp.com/users/${storedUser.Username}/movies/${movieTitle}`, {
                         method: "DELETE",
