@@ -1,6 +1,6 @@
 import { Col, Row, Button, Spinner, Card } from "react-bootstrap";
 import { useParams } from "react-router";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { useState, useEffect } from "react";
 
 export const MovieView = ({ movieData }) => {
